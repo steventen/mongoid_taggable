@@ -63,6 +63,15 @@ MyModel.tagged_with_all(['foo', 'bar'])
 MyModel.tagged_with_any('foo', 'bar')
 MyModel.tagged_with_any(['foo', 'bar'])
 
+p. Similarly, with list model, you can do:
+
+bc.. MyModel.listed_as('foo')
+MyModel.published.listed_as('foo').count
+MyModel.listed_as_all('foo', 'bar')
+MyModel.listed_as_all(['foo', 'bar'])
+MyModel.listed_as_any('foo', 'bar')
+MyModel.listed_as_any(['foo', 'bar'])
+
 h2. Tags Indexing
 
 This module will automatically create an index of tags and their counts for you after saving the document. This can be used for a tag cloud. See the following example to understand how to use it:
