@@ -15,21 +15,21 @@
 module Mongoid::Listable
   def self.included(base)
     # create fields for tags and index it
-    base.field :list_array, :type => Array, :default => []
-    base.index({list_array: 1}, {drop_dups: true})
+    base.field :lists_array, :type => Array, :default => []
+    base.index({lists_array: 1}, {drop_dups: true})
 
     # # add callback to save tags index
     # base.after_save do |document|
-    #   if document.list_array_changed
+    #   if document.lists_array_changed
     #     document.class.save_tags_index!
-    #     document.list_array_changed = false
+    #     document.lists_array_changed = false
     #   end
     # end
 
     # extend model
     base.extend         ClassMethods
     base.send :include, InstanceMethods
-    base.send :attr_accessor, :list_array_changed
+    base.send :attr_accessor, :lists_array_changed
 
   end
 
@@ -37,15 +37,15 @@ module Mongoid::Listable
     # returns an array of distinct ordered list of tags defined in all documents
 
     def listed_as(tag)
-      self.any_in(:list_array => [tag])
+      self.any_in(:lists_array => [tag])
     end
 
     def listed_as_all(*tags)
-      self.all_in(:list_array => tags.flatten)
+      self.all_in(:lists_array => tags.flatten)
     end
 
     def listed_as_any(*tags)
-      self.any_in(:list_array => tags.flatten)
+      self.any_in(:lists_array => tags.flatten)
     end
 
     def lists
@@ -75,12 +75,12 @@ module Mongoid::Listable
 
   module InstanceMethods
     def lists
-      (list_array || []).join(self.class.lists_separator)
+      (lists_array || []).join(self.class.lists_separator)
     end
 
     def lists=(lists)
       self.lists_array = lists.split(self.class.lists_separator).map(&:strip).reject(&:blank?)
-      @list_array_changed = true
+      @lists_array_changed = true
     end
   end
 end
