@@ -79,7 +79,7 @@ module Mongoid::Listable
     end
 
     def lists=(lists)
-      self.list_array = lists.split(self.class.lists_separator).map(&:strip).reject(&:blank?)
+      self.lists_array = lists.split(self.class.lists_separator).map(&:strip).reject(&:blank?)
       @list_array_changed = true
     end
   end
