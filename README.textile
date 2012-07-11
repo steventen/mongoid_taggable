@@ -2,6 +2,10 @@ h1. Mongoid Taggable
 
 Mongoid Taggable provides some helpers to create taggable documents.
 
+Fork from http://wilkerlucio.github.com/mongoid_taggable/
+
+Key Change is: added one more taggable field called: list. It's beed used in the situation where more than one taggable fields needed.
+
 h2. Installation
 
 You can simple install from rubygems:
