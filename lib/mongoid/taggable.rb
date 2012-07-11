@@ -52,6 +52,7 @@ module Mongoid::Taggable
 
     def tagged_exclude(*tags)
       self.excludes(:tags_array => tags.flatten)
+    end
 
     def tags
       tags_index_collection.master.find.to_a.map{ |r| r["_id"] }
