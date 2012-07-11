@@ -14,7 +14,7 @@ bc. gem install mongoid_taggable
 
 or in Gemfile:
 
-bc. gem 'mongoid_taggable'
+bc. gem 'mongoid_taggable', :git => "git://github.com/steventen/mongoid_taggable.git", :require => "mongoid_taggable"
 
 or as a Rails Plugin:
 
