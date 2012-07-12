@@ -51,7 +51,7 @@ module Mongoid::Taggable
     end
 
     def tagged_exclude(*tags)
-      self.excludes(:tags_array => tags.flatten)
+      self.not_in(:tags_array => tags.flatten)
     end
 
     def tags
