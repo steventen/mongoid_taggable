@@ -48,6 +48,10 @@ module Mongoid::Listable
       self.any_in(:lists_array => tags.flatten)
     end
 
+    def listed_exclude(*tags)
+      self.not_in(:lists_array => tags.flatten)
+    en
+
     def lists
       lists_index_collection.master.find.to_a.map{ |r| r["_id"] }
     end

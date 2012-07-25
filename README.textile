@@ -76,6 +76,7 @@ MyModel.listed_as_all('foo', 'bar')
 MyModel.listed_as_all(['foo', 'bar'])
 MyModel.listed_as_any('foo', 'bar')
 MyModel.listed_as_any(['foo', 'bar'])
+MyModel.listed_exclude(['foo', 'bar'])
 
 h2. Tags Indexing
 
